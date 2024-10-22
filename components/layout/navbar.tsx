@@ -1,37 +1,16 @@
 import Image from "next/image";
 import { Avatar, AvatarImage } from "../ui/avatar";
+import { navList } from "@/lib/data";
 
-const navList: Array<{ title: string; imgUrl: string }> = [
-  {
-    title: "Overview",
-    imgUrl: "home",
-  },
-  {
-    title: "Patients",
-    imgUrl: "group",
-  },
-  {
-    title: "Schedule",
-    imgUrl: "calendar",
-  },
-  {
-    title: "Message",
-    imgUrl: "chat_bubble",
-  },
-  {
-    title: "Transactions",
-    imgUrl: "credit_card",
-  },
-];
 const Navbar = () => {
   return (
     <div className="flex justify-between items-center bg-white rounded-full p-4 mb-6">
       <Image src={"/TestLogo.svg"} alt="logo" width={211} height={48} />
-      <ul className="flex gap-5 cursor-pointer">
+      <ul className="flex gap-5 ">
         {navList.map((item) => (
           <li
             key={item.title}
-            className="flex gap-2 hover:transition-colors ease-in-out hover:bg-[#01F0D0] px-2 py-1 rounded-full"
+            className="flex gap-2 hover:transition-colors ease-in-out hover:bg-[#01F0D0] px-2 py-1 rounded-full cursor-pointer"
           >
             <Image
               src={`/${item.imgUrl}.svg`}
