@@ -9,7 +9,7 @@ export function Profile() {
         src="/profile.jpg"
         width={200}
         height={200}
-        alt="more"
+        alt="profile"
       />
       <h1 className="font-semibold text-lg text-center">Jessica Taylor</h1>
     </div>
