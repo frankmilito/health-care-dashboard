@@ -9,7 +9,7 @@ export const LabResults = () => {
       <div className="h-48 overflow-y-scroll px-2">
         {labResults.map((result) => (
           <div key={result} className="flex justify-between">
-            <h1>{result}</h1>
+            <h1 className="text-sm">{result}</h1>
             <Image
               className="my-4"
               src="/download.svg"

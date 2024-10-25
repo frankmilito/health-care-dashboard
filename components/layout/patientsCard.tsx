@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { Avatar, AvatarImage } from "../ui/avatar";
 
-export const PatientsCard = () => {
+export const PatientsCard = ({ i }: { i: number }) => {
   return (
     <div className="flex justify-between gap-4 mb-6">
       <div className="flex">
         <Avatar className="mr-3">
-          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarImage src={`https://picsum.photos/200/300?random=${i}`} />
         </Avatar>
         <div className="pr-2">
           <h1 className="font-semibold text-sm">Emily Simmons</h1>
