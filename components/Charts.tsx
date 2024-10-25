@@ -21,114 +21,102 @@ import {
 export const description = "A line chart with dots and colors";
 
 const chartData = [
-  { month: "Oct,2024", ["Blood Pressure"]: 275, fill: "var(--color-chrome)" },
-  { month: "Nov,2024", ["Blood Pressure"]: 200, fill: "var(--color-safari)" },
-  { month: "Dec,2024", ["Blood Pressure"]: 187, fill: "var(--color-firefox)" },
-  { month: "Jan,2024", ["Blood Pressure"]: 173, fill: "var(--color-edge)" },
-  { month: "Feb,2024", ["Blood Pressure"]: 90, fill: "var(--color-other)" },
+  { month: "Oct,2024", ["Blood Pressure"]: 115, ["Heart Beat"]: 120 },
+  { month: "Nov,2024", ["Blood Pressure"]: 70, ["Heart Beat"]: 40 },
+  { month: "Dec,2024", ["Blood Pressure"]: 187, ["Heart Beat"]: 90 },
+  { month: "Jan,2025", ["Blood Pressure"]: 173, ["Heart Beat"]: 130 },
+  { month: "Feb,2025", ["Blood Pressure"]: 90, ["Heart Beat"]: 84 },
+  { month: "Feb,2025", ["Blood Pressure"]: 120, ["Heart Beat"]: 104 },
 ];
 
 const chartConfig = {
-  visitors: {
-    label: "Visitors",
-    color: "hsl(var(--chart-2))",
-  },
-  chrome: {
-    label: "Chrome",
+  ["Heart Beat"]: {
+    label: "Heart Beat",
     color: "hsl(var(--chart-1))",
   },
-  safari: {
-    label: "Safari",
-    color: "blue",
-  },
-  firefox: {
-    label: "Firefox",
-    color: "hsl(var(--chart-3))",
-  },
-  edge: {
-    label: "Edge",
-    color: "hsl(var(--chart-4))",
-  },
-  other: {
-    label: "Other",
-    color: "hsl(var(--chart-5))",
+  ["Blood Pressure"]: {
+    label: "Blood Pressure",
+    color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;
 
 export function Charts() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Line Chart - Dots Colors</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <ChartContainer config={chartConfig}>
-          <LineChart
-            accessibilityLayer
-            data={chartData}
-            margin={{
-              top: 24,
-              left: 24,
-              right: 24,
-            }}
-          >
-            <CartesianGrid
-              vertical={false}
-              stroke="#E3E4E6"
-              // strokeDasharray="5 5"
-              strokeWidth={2}
-            />
-            <ChartTooltip
-              cursor={false}
-              content={
-                <ChartTooltipContent
-                  indicator="line"
-                  nameKey={"Blood Pressure "}
-                  hideLabel
-                />
-              }
-            />
-            <Line
-              dataKey={"Blood Pressure"}
-              type="natural"
-              stroke="var(--color-visitors)"
-              strokeWidth={2}
-              dot={({ payload, ...props }) => {
-                return (
-                  <Dot
-                    key={payload.month}
-                    r={5}
-                    cx={props.cx}
-                    cy={props.cy}
-                    fill={payload.fill}
-                    stroke={payload.fill}
-                  />
-                );
+    <Card className="bg-[#F4F0FE] rounded-lg">
+      <div>
+        <CardHeader>
+          <CardTitle>Blood Pressure</CardTitle>
+          <CardDescription>January - June 2024</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ChartContainer config={chartConfig}>
+            <LineChart
+              accessibilityLayer
+              data={chartData}
+              margin={{
+                top: 24,
+                left: 24,
+                right: 24,
               }}
-            />
-            <YAxis
-              tickLine={false}
-              axisLine={{ stroke: "#E3E4E6", strokeWidth: 2 }}
-            />
-            <XAxis
-              dataKey="month"
-              stroke="#8884d8"
-              // tick={{ fill: "#E3E4E6", fontSize: 14 }} // Style for ticks
-              tickLine={false}
-              axisLine={{ stroke: "#E3E4E6", strokeWidth: 2 }}
-            />
-          </LineChart>
-        </ChartContainer>
-      </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
-      </CardFooter>
+            >
+              <CartesianGrid
+                vertical={false}
+                stroke="#E3E4E6"
+                // strokeDasharray="5 5"
+                strokeWidth={2}
+              />
+              <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+              <Line
+                dataKey={"Blood Pressure"}
+                type="natural"
+                stroke="#E66FD2"
+                strokeWidth={2}
+                dot={({ payload, ...props }) => {
+                  return (
+                    <Dot
+                      key={payload.month}
+                      r={5}
+                      cx={props.cx}
+                      cy={props.cy}
+                      fill={"#E66FD2"}
+                      stroke={payload.fill}
+                    />
+                  );
+                }}
+              />
+              <Line
+                dataKey={"Heart Beat"}
+                type="natural"
+                stroke="#7E6CAB"
+                strokeWidth={2}
+                dot={({ payload, ...props }) => {
+                  return (
+                    <Dot
+                      key={payload.month}
+                      r={5}
+                      cx={props.cx}
+                      fill={"#7E6CAB"}
+                      cy={props.cy}
+                    />
+                  );
+                }}
+              />
+              <YAxis
+                tickLine={false}
+                axisLine={{ stroke: "#E3E4E6", strokeWidth: 2 }}
+                tick={{ fill: "#072635", fontSize: 12 }}
+              />
+              <XAxis
+                dataKey="month"
+                stroke="#8884d8"
+                tick={{ fill: "#072635", fontSize: 12 }}
+                tickLine={false}
+                axisLine={{ stroke: "#E3E4E6", strokeWidth: 2 }}
+              />
+            </LineChart>
+          </ChartContainer>
+        </CardContent>
+      </div>
     </Card>
   );
 }
