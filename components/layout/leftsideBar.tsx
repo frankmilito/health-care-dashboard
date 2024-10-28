@@ -1,9 +1,19 @@
+"use client";
 import Image from "next/image";
 import { PatientsCard } from "./patientsCard";
 import Card from "../Card";
 import { Header } from "../Header";
+import { useUsers } from "@/service/users";
 
 export const LeftsideBar = () => {
+  const { data, isLoading, isError } = useUsers();
+  console.log(process.env.NODE_ENV);
+  if (isLoading) {
+    return <h1 className="italic text-xs">Loading...</h1>;
+  }
+  if (isError) {
+    return <h1 className="italic">Something went wrong</h1>;
+  }
   return (
     <Card>
       <div className="flex justify-between py-2 mb-4">
@@ -16,8 +26,8 @@ export const LeftsideBar = () => {
           alt="more"
         />
       </div>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((item) => (
-        <PatientsCard key={item} i={item} />
+      {data?.map((item) => (
+        <PatientsCard key={item.cell} item={item} />
       ))}
     </Card>
   );
