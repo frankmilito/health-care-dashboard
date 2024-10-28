@@ -7,7 +7,6 @@ import { useUsers } from "@/service/users";
 
 export const LeftsideBar = () => {
   const { data, isLoading, isError } = useUsers();
-  console.log(process.env.NODE_ENV);
   if (isLoading) {
     return <h1 className="italic text-xs">Loading...</h1>;
   }
