@@ -14,7 +14,7 @@ export const DiagnosticList = () => {
   return (
     <div className="mt-6">
       <Card>
-        <Table>
+        <Table className="scroll-auto">
           {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
           <TableHeader>
             <TableRow className="grid grid-cols-3 font-semibold">

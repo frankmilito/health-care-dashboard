@@ -27,7 +27,7 @@ export const DiagnosisCard = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-3 gap-4 mt-6 ">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 ">
       {cardList.map((item) => (
         <Card style={{ backgroundColor: item.bg }} key={item.title}>
           <Image src={`/${item.image}.svg`} width={95} height={95} alt="" />

@@ -4,7 +4,7 @@ import { navList } from "@/lib/data";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center bg-white rounded-full p-4 mb-6">
+    <div className="hidden md:flex justify-between items-center bg-white rounded-full p-4 mb-6">
       <Image src={"/TestLogo.svg"} alt="logo" width={211} height={48} />
       <ul className="flex gap-5 ">
         {navList.map((item) => (
