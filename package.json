@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "mocks": "NODE_ENV=mocks next dev"
   },
   "dependencies": {
     "@faker-js/faker": "^9.1.0",

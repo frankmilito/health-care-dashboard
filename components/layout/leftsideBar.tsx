@@ -4,11 +4,17 @@ import { PatientsCard } from "./patientsCard";
 import Card from "../Card";
 import { Header } from "../Header";
 import { useUsers } from "@/service/users";
+import { SkeletonLoad } from "../Loading";
 
 export const LeftsideBar = () => {
   const { data, isLoading, isError } = useUsers();
+  console.log(isError);
   if (isLoading) {
-    return <h1 className="italic text-xs">Loading...</h1>;
+    return (
+      <Card>
+        <SkeletonLoad count={10} />;
+      </Card>
+    );
   }
   if (isError) {
     return <h1 className="italic">Something went wrong</h1>;
@@ -26,7 +32,7 @@ export const LeftsideBar = () => {
         />
       </div>
       {data?.map((item) => (
-        <PatientsCard key={item.cell} item={item} />
+        <PatientsCard key={item.name.first} item={item} />
       ))}
     </Card>
   );

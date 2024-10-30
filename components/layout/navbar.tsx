@@ -10,7 +10,7 @@ const Navbar = () => {
         {navList.map((item) => (
           <li
             key={item.title}
-            className="flex gap-2 hover:transition-colors ease-in-out hover:bg-[#01F0D0] px-2 py-1 rounded-full cursor-pointer"
+            className="flex gap-2 hover:transition-colors ease-in-out hover:bg-[#01F0D0] px-4 py-2 rounded-full cursor-pointer "
           >
             <Image
               src={`/${item.imgUrl}.svg`}

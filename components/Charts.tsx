@@ -26,7 +26,7 @@ const chartData = [
   { month: "Dec,2024", ["Blood Pressure"]: 187, ["Heart Beat"]: 90 },
   { month: "Jan,2025", ["Blood Pressure"]: 173, ["Heart Beat"]: 130 },
   { month: "Feb,2025", ["Blood Pressure"]: 90, ["Heart Beat"]: 84 },
-  { month: "Feb,2025", ["Blood Pressure"]: 120, ["Heart Beat"]: 104 },
+  { month: "Mar,2025", ["Blood Pressure"]: 120, ["Heart Beat"]: 104 },
 ];
 
 const chartConfig = {

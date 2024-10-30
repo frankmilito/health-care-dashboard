@@ -29,6 +29,6 @@ export const useUsers = () => {
     queryKey: ["Users"],
     queryFn: fetchMovies,
   });
-
+  console.log(query.data);
   return query;
 };
