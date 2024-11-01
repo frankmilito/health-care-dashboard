@@ -6,13 +6,11 @@ import { RightSideBar } from "@/components/layout/rightSideBar";
 // import { useEffect, useLayoutEffect } from "react";
 
 export default function Home() {
-  // useLayoutEffect(() => {
   if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
     import("../mocks/mocks").then(({ worker }) => {
       worker.start();
     });
   }
-  // }, []);
 
   return (
     <div className="min-h-screen bg-[#f6f7f8] p-8">
